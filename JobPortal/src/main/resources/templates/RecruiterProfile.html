@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link th:rel="stylesheet" th:href="@{/css/tailwind config/output.css}">
+</head>
+<body>
+
+<main class="flex flex-col justify-center items-center mt-36">
+
+  <header class=" flex items-center flex-col">
+    <label for="title" class="font-bold text-4xl w-[200px]">Recruiter</label>
+    <label for="text" class="text-3xl w-[400px]">Set Up Your Recruiter Profile</label>
+  </header>
+
+  <div class="form-type flex flex-col justify-between gap-y-3 w-[50%]">
+    <label for="name" class="w-[200px]  text-xl pt-5 ">NAME</label>
+    <!-- NAME -->
+    <div class="name flex  gap-x-2 ">
+      <input type="text" name="firstname" placeholder="FirstName " class=" rounded-sm  placeholder-slate-500 h-12 p-1 flex-grow bg-blue-200">
+      <input type="text" name="lastname" placeholder="lastName"  class=" rounded-sm  placeholder-slate-500 h-12 p-1  flex-grow bg-blue-200">
+    </div>
+    <!-- Location -->
+    <div class="name flex justify-between  gap-x-2 ">
+      <input type="text" name="con" placeholder="Country" class=" rounded-sm placeholder-slate-500  flex-grow  h-12 p-1  bg-blue-200">
+      <input type="text" name="state" placeholder="State" class="rounded-sm placeholder-slate-500  h-12 p-1 flex-grow bg-blue-200">
+      <input type="text" name="city" placeholder="City" class="  rounded-sm placeholder-slate-500h-12 p-1 flex-grow bg-blue-200">
+    </div>
+    <!-- Company -->
+    <div class="name flex gap-x-2">
+      <input type="text" name="company" placeholder="Company" class=" rounded-sm placeholder-slate-500  h-12 p-1  flex-grow bg-blue-200">
+
+    </div>
+    <label for="Photo" class="w-[200px] text-xl p-1  ">Profile Photo</label>
+    <div class=" h-12 p-1 gap-x-2 border-blue-200 border-2 ">
+      <input type="file" name="Photo" >
+    </div>
+
+
+
+
+
+
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<!--  <link rel="stylesheet" href="output.css">-->
+  <link th:rel="stylesheet" th:href="@{/css/tailwind config/output.css}">
+  <style>
+        .emps {
+            height: 100vh;
+            width: 50%;
+            overflow: hidden;
+            background-image: linear-gradient(to right, rgba(0, 34, 68, 0.5), rgba(0, 34, 68, 0.5)), url('/images/img4.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 25% 75%;
+        }
+    </style>
+</head>
+<body>
+<div class="flex">
+  <div class="left emps">
+    <div class="logo w-[10%] text-2xl flex pt-4 pl-4 font-bold ">
+      <label class="rounded-lg p-1">HotDev</label>
+      <label class="bg-orange-600 rounded-lg text-white p-1">.com</label>
+    </div>
+  </div>
+  <div class="right w-[50%] flex flex-col items-center pt-24">
+<!--    if error occurs-->
+    <div th:if="${error}" class="mb-4 w-[75%] text-center bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
+      <p class="font-bold">Login Failed</p>
+      <p th:text="${error}"></p>
+    </div>
+    <div class="title text-4xl font-bold">
+      Create User Account
+    </div>
+    <div class="myform w-[100%]">
+      <form  th:action="@{/register/new}"
+             th:object="${user}"
+             method="post"
+             class="w-[100%] flex flex-col pt-10 items-center gap-y-4">
+
+        <div class="email w-[60%]">
+          <input type="email" placeholder="email" name="email" id="email" th:field="*{email}" class="w-[100%] h-14 border-2 pl-3 border-slate-500" required>
+        </div>
+        <div class="password w-[60%]">
+          <input type="password" placeholder="password" name="pass" id="pass" th:field="*{password}" class="w-[100%] h-14 border-2 pl-3 border-slate-500" required>
+        </div>
+        <div class="userType w-[30%]">
+          <select name="userType" id="userType" required th:field="*{userTypeId}" class="border-2 h-12 w-[100%]">
+            <th:block th:each="userType : ${getAllTypes}">
+              <option th:text="${userType.userTypeName}" th:value="${userType.userTypeId}"></option>
+            </th:block>
+          </select>
+        </div>
+        <button type="submit" class="p-2 w-[30%] text-white bg-orange-600 rounded-lg text-2xl">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
