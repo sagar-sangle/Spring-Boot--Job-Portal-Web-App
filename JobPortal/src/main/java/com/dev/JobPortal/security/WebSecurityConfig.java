@@ -15,6 +15,13 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class WebSecurityConfig {
 
+    /*
+        UserDetailsService is used by DaoAuthenticationProvider for retrieving a username, a password, and other attributes for authenticating with a username and password. Spring Security provides in-memory, JDBC, and caching implementations of UserDetailsService.
+
+        You can define custom authentication by exposing a custom UserDetailsService as a bean. For example, the following listing customizes authentication, assuming that CustomUserDetailsService implements UserDetailsService:
+
+        This is only used if the AuthenticationManagerBuilder has not been populated and no AuthenticationProviderBean is defined.
+     */
     private final CustomUserDetailService customUserDetailsService;
 
     private final CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
@@ -44,6 +51,7 @@ public class WebSecurityConfig {
     @Bean
     protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
+        //uses custom authentication provider
         http.authenticationProvider(authenticationProvider());
 
         http.authorizeHttpRequests(auth -> {

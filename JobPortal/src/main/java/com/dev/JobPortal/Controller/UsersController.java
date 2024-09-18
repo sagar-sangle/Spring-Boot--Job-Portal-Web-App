@@ -35,17 +35,23 @@ public class UsersController {
 
     @GetMapping("/register")
     public String register(Model model){
+
         List<UsersType> usersType =usersTypeService.getAll();
         model.addAttribute("getAllTypes",usersType);
 
         model.addAttribute("user",new Users());
 
-        return "regi";
+        return "register";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
     }
 
 
     @PostMapping("/register/new")
-    public String userRegistration( @Valid Users users,Model model){
+    public String userRegistration(@Valid Users users,Model model){
         //        System.out.println("User:"+users);
 
         Optional<Users> userByEmail = userservice.getUserByEmail(users.getEmail());
@@ -55,17 +61,15 @@ public class UsersController {
             List<UsersType> usersType =usersTypeService.getAll();
             model.addAttribute("getAllTypes",usersType);
             model.addAttribute("user",new Users());
-            return "regi";
+
+            return "register";
         }
 
         userservice.addNew(users);
         return "RecruiterProfile";
     }
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
+
 
     @GetMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) {
