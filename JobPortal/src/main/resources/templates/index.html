@@ -49,8 +49,14 @@ padding: 20px 30px;
         <div class="logo self-start h-[100%] w-[10%] text-2xl">HotDev  <label class="bg-orange-600 rounded-lg p-1">.com</label></div>
         <ul class="flex p-2 justify-end gap-x-6  w-[50%]">
 
-            <li class="bg-orange-600 rounded-lg h-10 flex justify-center items-center" ><label class=" p-2 text-white "> Candidate Register/Login</label></li>
-            <li class="bg-orange-400 rounded-lg h-10 flex justify-center items-center" ><label class=" p-2 text-white "> Recruiter Register/Login</label></li>
+            <li class="bg-orange-600 rounded-lg h-10 flex justify-center items-center" ><label class=" p-2 text-white ">
+                <a th:href="@{/register}" class="hover:text-blue-500 hover:underline">Candidate Register</a>/
+                <a th:href="@{/login}" class="hover:text-blue-500 hover:underline">Login</a>
+            </label></li>
+            <li class="bg-orange-400 rounded-lg h-10 flex justify-center items-center" ><label class=" p-2 text-white ">
+                <a th:href="@{/#}" class="hover:text-blue-500 hover:underline">Recruiter Register</a>
+                /
+                    <a th:href="@{/#}" class="hover:text-blue-500 hover:underline">Login</a></label></li>
             <li></li>
         </ul>
     </nav>
@@ -84,6 +90,7 @@ padding: 20px 30px;
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-orange-600 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
                         <path d="M8 17l4 4 4-4m-4-5v9"></path>
                         <path d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29"></path>
+
                     </svg>
                     <h2 class="title-font font-medium text-3xl text-gray-900">2.7K</h2>
                     <p class="leading-relaxed">Downloads</p>

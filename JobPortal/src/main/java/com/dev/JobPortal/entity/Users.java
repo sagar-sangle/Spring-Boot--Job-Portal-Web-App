@@ -1,5 +1,6 @@
 package com.dev.JobPortal.entity;
 
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -12,33 +13,31 @@ public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int userId;
-
-    boolean isActive;
+    private int userId;
 
     @Column(unique = true)
-    String email;
-    @NotEmpty
-    String password;
+    private String email;
 
+    @NotEmpty
+    private String password;
+
+    private boolean isActive;
 
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date registrationDate;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "userTypeId",referencedColumnName = "userTypeId")
-    UsersType userTypeId;
-
-
+    @JoinColumn(name = "userTypeId", referencedColumnName = "userTypeId")
+    private UsersType userTypeId;
 
     public Users() {
     }
 
-    public Users(int userId, boolean isActive, String email, String password, Date registrationDate, UsersType userTypeId) {
+    public Users(int userId, String email, String password, boolean isActive, Date registrationDate, UsersType userTypeId) {
         this.userId = userId;
-        this.isActive = isActive;
         this.email = email;
         this.password = password;
+        this.isActive = isActive;
         this.registrationDate = registrationDate;
         this.userTypeId = userTypeId;
     }
@@ -50,7 +49,6 @@ public class Users {
     public void setUserId(int userId) {
         this.userId = userId;
     }
-
 
     public String getEmail() {
         return email;
@@ -67,8 +65,6 @@ public class Users {
     public void setPassword(String password) {
         this.password = password;
     }
-
-
 
     public boolean isActive() {
         return isActive;
@@ -98,9 +94,9 @@ public class Users {
     public String toString() {
         return "Users{" +
                 "userId=" + userId +
-                ", isActive=" + isActive +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", isActive=" + isActive +
                 ", registrationDate=" + registrationDate +
                 ", userTypeId=" + userTypeId +
                 '}';
